@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-title> Alterar Produto </mat-card-title>
+    <form>
+      <mat-form-field>
+        <input matInput placeholder="Nome"  name="name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Preco R$" name="price">
+      </mat-form-field>
+    </form>
+  
+  </mat-card>
+  
+  <button mat-raised-button (click)="updateProduct()" color="primary">
+    Atualizar
+  </button>
+  
+  <button mat-raised-button (click)="cancel()" color="primary">
+      Cancelar
+  </button>
+  
+  
+  
+  

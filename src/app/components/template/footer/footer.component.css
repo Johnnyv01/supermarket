@@ -1,0 +1,24 @@
+.red {
+    color:rgb(227, 97, 107)
+}
+
+.v-middle{
+    vertical-align: middle;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+
+    display: flex;
+    justify-content: flex-end;
+
+    font-size: 14px;
+
+    background: rgba(179, 155, 155, 0.13);
+    color: black;
+}
+
+.footer span {
+    font-weight: 300px;
+}
