@@ -2,10 +2,12 @@
     <mat-card-title> Alterar Produto </mat-card-title>
     <form>
       <mat-form-field>
-        <input matInput placeholder="Nome"  name="name">
+        <input matInput placeholder="Nome" 
+        [(ngModel)]="product.name" name="name">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Preco R$" name="price">
+        <input matInput placeholder="Preco R$"
+        [(ngModel)]="product.price" name="price">
       </mat-form-field>
     </form>
   

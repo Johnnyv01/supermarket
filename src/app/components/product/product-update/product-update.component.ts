@@ -9,21 +9,22 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './product-update.component.css'
 })
 export class ProductUpdateComponent implements OnInit {
-
-  product!: Product;
+   
+  product: Product = {} as Product;
 
   constructor(
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
     if (id !== null) {
-      this.productService.readById(id).subscribe(product => {
-        this.product = product;
+     
+      this.productService.readById(id).subscribe(products => {
+        this.product = products;
       });
     } else {
       // Trate o caso em que id é nulo, se necessário
