@@ -39,9 +39,11 @@ export class ProductService {
     return this.http.post<Product>(url,product)
   }
 
-  delete(id: string): Observable<Product>{
-    const url = `${this.baseUrl}/${id}`
-    console.log("url: " + url)
-    return this.http.delete<Product>(url)
+  delete(id: string): Observable<string> {
+    const url = `${this.baseUrl}/${id}`;
+    console.log("url: " + url);
+  
+    return this.http.delete(url, { responseType: 'text' });
   }
+  
 }

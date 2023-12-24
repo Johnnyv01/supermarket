@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-read',
@@ -10,18 +11,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductReadComponent implements OnInit {
 
+  
   products: Product[] = [];
-  product: Product = {} as Product;
+  
+  product!: Product;
   displayedColumns = ['id', 'name', 'price', 'action'];
 
   constructor(
     private productService: ProductService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
+
+
     const id = this.route.snapshot.paramMap.get('id')
+    this.product = {} as Product; // Inicializa this.product
+    console.log("id: " + id)
+
     if (id !== null) {
 
       this.productService.readById(id).subscribe(products => {
@@ -31,18 +40,32 @@ export class ProductReadComponent implements OnInit {
       // Trate o caso em que id é nulo, se necessário
       console.error("ID is null");
     }
+
     this.productService.read().subscribe(products => {
       this.products = products
-      console.log(products)
+
     })
   }
 
-  deletar(): void {
-    console.log("Entrou aqui!!")
-    if (this.product.id) {
-      this.productService.delete(this.product.id).subscribe(() => {
-
-      })
-    }
+  deletar(ids: string): void {
+    this.productService.delete(ids).subscribe(
+      () => {
+    
+        this.productService.showMessage('Produto foi excluído com sucesso!');
+        this.atualizarListaProdutos();
+      },
+      error => {
+        console.error('Erro ao excluir produto:', error);
+      }
+    );
   }
+
+  private atualizarListaProdutos(): void {
+    this.productService.read().subscribe(products => {
+      this.products = products;
+  
+    });
+  }
+  
+
 }
