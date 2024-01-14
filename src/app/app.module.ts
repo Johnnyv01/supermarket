@@ -22,6 +22,7 @@ import  {MatButtonModule} from '@angular/material/button'
 //Views
 import { HomeComponent } from './views/home/home.component';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
+import { TestesComponent } from './views/testes/testes.component';
 
 //Http
 import {HttpClientModule} from '@angular/common/http'
@@ -35,11 +36,27 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
+//Material teste
+import {MatCheckboxModule} from '@angular/material/checkbox'
+import { MatRadioModule } from '@angular/material/radio';
+
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
+import {MatAutocompleteSelectedEvent, MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import {MatIconModule} from '@angular/material/icon';
+import {AsyncPipe} from '@angular/common';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
+
+
 
 import localePT from '@angular/common/locales/pt'
 import  {registerLocaleData} from '@angular/common';
 import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
 import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
+
 
 registerLocaleData(localePT);
 @NgModule({
@@ -54,7 +71,8 @@ registerLocaleData(localePT);
     ProductReadComponent,
     ProductRead2Component,
     ProductUpdateComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    TestesComponent
  
   ],
   imports: [
@@ -72,7 +90,15 @@ registerLocaleData(localePT);
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatChipsModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    AsyncPipe,
+    
   ],
   providers: [{
     provide: LOCALE_ID,
