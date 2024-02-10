@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../../../service/api.service';
 
 @Component({
   selector: 'app-product-read',
@@ -11,9 +12,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductReadComponent implements OnInit {
 
-  
+
   products: Product[] = [];
-  
+
   product!: Product;
   displayedColumns = ['id', 'name', 'price', 'action'];
 
@@ -21,11 +22,15 @@ export class ProductReadComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute,
-    private http: HttpClient
+    private http: HttpClient,
+    private apiService: ApiService
   ) { }
 
-  ngOnInit(): void {
 
+  public getProductList = signal(this.apiService.getProductList)
+
+  ngOnInit(): void {
+    //this.apiService.httpProductList$().subscribe();
 
     const id = this.route.snapshot.paramMap.get('id')
     this.product = {} as Product; // Inicializa this.product
@@ -41,16 +46,18 @@ export class ProductReadComponent implements OnInit {
       console.error("ID is null");
     }
 
+
     this.productService.read().subscribe(products => {
       this.products = products
 
     })
   }
 
+
   deletar(ids: string): void {
     this.productService.delete(ids).subscribe(
       () => {
-    
+
         this.productService.showMessage('Produto foi excluído com sucesso!');
         this.atualizarListaProdutos();
       },
@@ -63,9 +70,9 @@ export class ProductReadComponent implements OnInit {
   private atualizarListaProdutos(): void {
     this.productService.read().subscribe(products => {
       this.products = products;
-  
+
     });
   }
-  
+
 
 }

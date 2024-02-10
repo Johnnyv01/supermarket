@@ -1,5 +1,5 @@
 .header{
-    background-color: rgb(51, 49, 49);
+    background-color: rgb(196, 193, 193);
     display: flex;
     align-items: center;
     
@@ -14,7 +14,7 @@
 }
 
 .header .logo{
-    max-height: 32px;
+    max-height: 90px;
 }
 
 .header .tittle-group{

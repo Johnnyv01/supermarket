@@ -27,7 +27,7 @@ import { TestesComponent } from './views/testes/testes.component';
 //Http
 import {HttpClientModule} from '@angular/common/http'
 
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProductReadComponent } from './components/product/product-read/product-read.component';
@@ -40,15 +40,11 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatCheckboxModule} from '@angular/material/checkbox'
 import { MatRadioModule } from '@angular/material/radio';
 
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {FormControl, ReactiveFormsModule} from '@angular/forms';
-import {MatAutocompleteSelectedEvent, MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { ReactiveFormsModule} from '@angular/forms';
+import { MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {AsyncPipe} from '@angular/common';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 
 
