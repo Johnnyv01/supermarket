@@ -1,10 +1,9 @@
 
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { AsyncPipe, CommonModule, registerLocaleData } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 
-import { HomeModuleRoutingModule } from './home-module-routing.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,24 +21,32 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
-import { HeaderComponent } from '../../components/template/header/header.component';
-import { FooterComponent } from '../../components/template/footer/footer.component';
-import { NavComponent } from '../../components/template/nav/nav.component';
-import { HomeComponent } from './home/home.component';
+
+
 import localePT from '@angular/common/locales/pt'
+import { ProductCrudComponent } from './products/product-crud.component';
+import { ProductCreateComponent } from '../../components/product/product-create/product-create.component';
+import { ProductReadComponent } from '../../components/product/product-read/product-read.component';
+import { ProductRead2Component } from '../../components/product/product-read2/product-read2.component';
+import { ProductUpdateComponent } from '../../components/product/product-update/product-update.component';
+import { ProductDeleteComponent } from '../../components/product/product-delete/product-delete.component';
+import { RouterModule } from '@angular/router';
+
 
 registerLocaleData(localePT);
 @NgModule({
   declarations: [
-    HomeComponent,
-
+    ProductCrudComponent,
+    ProductCreateComponent,
+    ProductReadComponent,
+    ProductRead2Component,
+    ProductUpdateComponent,
+    ProductDeleteComponent
 
   ],
   imports: [
     CommonModule,
-    HomeModuleRoutingModule,
     MatToolbarModule,
-    MatSidenavModule,
     MatListModule,
     MatCardModule,
     MatButtonModule,
@@ -57,10 +64,11 @@ registerLocaleData(localePT);
     MatAutocompleteModule,
     MatGridListModule,
     MatMenuModule,
+    RouterModule
   ],
   providers: [{
     provide: LOCALE_ID,
     useValue: 'pt-BR'
   }],
 })
-export class HomeModuleModule { }
+export class ProductModuleModule { }

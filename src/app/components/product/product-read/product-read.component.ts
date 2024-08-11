@@ -54,10 +54,9 @@ export class ProductReadComponent implements OnInit {
   }
 
 
-  deletar(ids: string): void {
-    this.productService.delete(ids).subscribe(
+  deletar(id: string): void {
+    this.productService.delete(id).subscribe(
       () => {
-
         this.productService.showMessage('Produto foi excluído com sucesso!');
         this.atualizarListaProdutos();
       },

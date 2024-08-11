@@ -1,3 +1,26 @@
+/* Se você estiver usando CSS */
+.mat-card-custom {
+    background-color: #f5f5f5;
+    /* Cor cinza clara */
+    padding: 16px;
+    /* Ajuste o padding conforme necessário */
+}
+
+.mat-card-custom .mat-card-title {
+    font-weight: bold;
+}
+
+.mat-form-field {
+    margin-bottom: 16px;
+    /* Espaçamento entre campos do formulário */
+}
+
+button {
+    margin-right: 8px;
+    /* Espaçamento entre os botões */
+}
+
+
 form {
     display: flex;
     flex-direction: column;

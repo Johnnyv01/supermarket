@@ -1,33 +1,30 @@
-.header{
+.header {
+    height: 8%;
     background-color: rgb(196, 193, 193);
     display: flex;
     align-items: center;
-    
+
 }
 
 .header a {
-   
+
     display: flex;
     align-items: center;
     text-decoration: none;
     color: #000;
 }
 
-.header .logo{
-    max-height: 90px;
+.header .logo {
+    max-height: 100px;
+    object-fit: contain;
 }
 
-.header .tittle-group{
-   
+.header .tittle-group {
+
     padding-left: 15px;
 }
 
-.header .tittle-group i{
-  
+.header .tittle-group i {
+
     padding-right: 10px;
 }
-
-
-
-
-
